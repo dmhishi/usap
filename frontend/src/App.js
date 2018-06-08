@@ -1,19 +1,33 @@
 import React, { Component } from 'react';
-import logo from './usap_logo_web.jpg';
-import './App.css';
+import {BrowserRouter, Route} from 'react-router-dom';
+import Home from './views/home';
+import Profiles from './views/profiles';
+import Login from './views/login';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logos" alt="logo" />
-          <h1 className="App-title">USAP Website</h1>
-        </header>
-        <p className="App-intro">
+         <BrowserRouter>
+        <div>
+          <Route exact={true} path='/' render={() => (
+            <div className="App">
+              <Home />
+            </div>
+          )}/>
+          <Route exact={true} path='/profiles' render={() => (
+            <div className="App">
+              <Profiles />
+            </div>
+          )}/>
+          <Route exact={true} path='/login' render={() => (
+            <div className="App">
+              <Login />
+            </div>
+          )}/>
           
-        </p>
-      </div>
+        </div>
+      </BrowserRouter>
     );
   }
 }
